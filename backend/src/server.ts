@@ -19,6 +19,10 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`BodyBuild AI Backend running on port ${port}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`BodyBuild AI Backend running on port ${port}`);
+  });
+}
+
+export default app;
